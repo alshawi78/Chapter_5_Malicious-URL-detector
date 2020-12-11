@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
 '''
-Spliting the url into bag of words
+Spliting the url into two different cagegories 
 '''
 def extract(data):
     data = list(data)
@@ -35,7 +35,7 @@ mal_data = pandas.DataFrame(mal_data)
 if len(sys.argv) == 1:
     sys.argv.append('all')
 
-# Handling user custom data length
+# different lenght need to be handled differently
 
 if sys.argv[1] == 'equal':
     print("Using 1:1, equal amount of data")
@@ -55,7 +55,6 @@ all_data = numpy.array(all_data)
 test_data = []
 url = []
 
-# Handling corrupt data and removing numpy.nan
 for temp in all_data:
     if type(temp[0]) != type("string")\
             or type(temp[1]) != type("string"):
@@ -64,10 +63,9 @@ for temp in all_data:
     test_data.append(temp[1])
 
 
-# Vectorizing the bag of words in URL
+# Vectorizing data
 # vectorization can be done in TfidfVectorizer or CountVectorizer
-# Ex:
-# vectorizer = CountVectorizer(tokenizer=extract, min_df=1)
+
 
 vectorizer = TfidfVectorizer(tokenizer=extract, min_df=1)
 
