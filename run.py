@@ -1,19 +1,21 @@
+# Ahmed Alshawi
+# EEGR 760
+# Morgan State University 
+
+# Importing lib
 import sys
 import numpy
 import pandas
-
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
-
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
-
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 
 '''
-Spliting the url into two different cagegories 
+Spliting the url into two categories
 '''
 def extract(data):
     data = list(data)
@@ -64,7 +66,6 @@ for temp in all_data:
 
 
 # Vectorizing data
-# vectorization can be done in TfidfVectorizer or CountVectorizer
 
 
 vectorizer = TfidfVectorizer(tokenizer=extract, min_df=1)
